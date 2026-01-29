@@ -572,10 +572,10 @@
         id="testimonial-author"
         class="testimonial-fade-item mt-3 sm:mt-4 flex flex-col items-center gap-0.5"
       >
-        <div id="testimonial-name" class="font-extrabold text-[0.8rem] sm:text-sm text-white tracking-wider"></div>
+        <div id="testimonial-name" class="testimonial-fade-item font-extrabold text-[0.8rem] sm:text-sm text-white tracking-wider"></div>
         <div
           id="testimonial-company"
-          class="text-[9px] sm:text-[10px] font-bold text-navy-50/80 uppercase tracking-[0.22em] text-center max-w-[32rem]"
+          class="testimonial-fade-item text-[9px] sm:text-[10px] font-bold text-navy-50/80 uppercase tracking-[0.22em] text-center max-w-[32rem]"
         ></div>
       </div>
 
@@ -845,6 +845,8 @@
       const nameEl = document.getElementById("testimonial-name");
       const companyEl = document.getElementById("testimonial-company");
       const authorWrap = document.getElementById("testimonial-author");
+      const authorName = document.getElementById("testimonial-name");
+      const authorCompany = document.getElementById("testimonial-company");
       const toggleBtn = document.getElementById("testimonial-toggle");
 
       if (!textEl || !nameEl || !companyEl || !authorWrap) return;
@@ -909,6 +911,8 @@
         const duration = enabled ? `${FADE_MS}ms` : "0ms";
         textEl.style.transitionDuration = duration;
         authorWrap.style.transitionDuration = duration;
+        if (authorName) authorName.style.transitionDuration = duration;
+        if (authorCompany) authorCompany.style.transitionDuration = duration;
       }
 
       function render(i, { animate = true } = {}) {
