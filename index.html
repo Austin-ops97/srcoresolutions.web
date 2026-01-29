@@ -902,7 +902,7 @@
       let renderToken = 0;
 
       function setTransition(enabled) {
-        const duration = enabled ? "700ms" : "0ms";
+        const duration = enabled ? "350ms" : "0ms";
         textEl.style.transitionDuration = duration;
         authorWrap.style.transitionDuration = duration;
       }
@@ -994,7 +994,7 @@
 
       function goTo(i, { manual } = { manual: true }) {
         index = clampIndex(i);
-        render(index, { animate: !manual });
+        render(index, { animate: true });
         updateDots();
         if (manual) pauseForManualAction();
       }
