@@ -1,148 +1,1026 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>About | SR Core Solutions</title>
-  <meta name="description" content="18+ years of operational execution experience supporting power generation and industrial teams nationwide."/>
-  <link rel="canonical" href="https://srsolutions.com/about"/>
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png"/>
-  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png"/>
-  <meta name="theme-color" content="#F7F8FA"/>
-  <meta property="og:title" content="About | SR Core Solutions"/>
-  <meta property="og:description" content="18+ years of operational execution experience supporting power generation and industrial teams nationwide."/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:image" content="https://srsolutions.com/assets/img/email-header.png"/>
-  <meta property="og:url" content="https://srsolutions.com/about"/>
-  <link rel="stylesheet" href="assets/styles.css"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SR Core Solutions</title>
+  <meta name="description" content="Operational project execution, vendor relations, and procurement support for power generation and industrial teams." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              950: "#051122",
+              900: "#0c213f",
+              800: "#112240",
+              700: "#002060",
+              600: "#1e3a8a",
+              50:  "#f0f4f8",
+            },
+          },
+          fontFamily: {
+            sans: ["Montserrat", "sans-serif"],
+          },
+          boxShadow: {
+            soft: "0 10px 30px -12px rgba(2, 32, 96, 0.18)",
+            card: "0 10px 25px -15px rgba(15, 23, 42, 0.25)",
+            ring: "0 0 0 1px rgba(15, 23, 42, 0.06)",
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: "Montserrat", sans-serif; }
+    .glass-nav{
+      background: rgba(255,255,255,0.92);
+      border-bottom: 1px solid rgba(2,32,96,0.10);
+      backdrop-filter: blur(10px);
+    }
+    .focus-ring:focus{
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(30,58,138,0.20);
+      border-color: rgba(30,58,138,0.60);
+    }
+    .section-anchor{
+      scroll-margin-top: 6.5rem;
+    }
+    @media (min-width: 1024px){
+      .section-anchor{ scroll-margin-top: 7.5rem; }
+    }
+    .card-hover{
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .card-hover:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 18px 35px -24px rgba(2, 32, 96, 0.35);
+    }
+    .faq-item summary{
+      list-style: none;
+    }
+    .faq-item summary::-webkit-details-marker{
+      display: none;
+    }
+    .faq-content{
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transform: translateY(-4px);
+      transition: max-height 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
+    }
+    .faq-item[open] .faq-content{
+      max-height: 240px;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .faq-content-inner{
+      padding-top: 0.75rem;
+    }
+
+    /* ===== Mobile polish (layout preserved; scale + spacing adjusted) ===== */
+    @media (max-width: 640px){
+      /* nav bar height + logo sizing */
+      #navbar .h-20{ height: 4.25rem; } /* 68px */
+      #navbar img.h-12{ height: 2.25rem; } /* 36px */
+      #logo-text{ font-size: 0.95rem; letter-spacing: 0.14em; }
+
+      /* reduce hero top padding so content sits better on small screens */
+      #home{ padding-top: 6.75rem; padding-bottom: 4rem; } /* ~108px / 64px */
+    }
+  </style>
 </head>
-<body>
-<header class="header">
-  <div class="container">
-    <nav class="nav" aria-label="Primary">
-      <a class="brand" href="index.html">
-        <img src="assets/img/sr-mark.png" alt="SR Core Solutions logo mark"/>
-        <div class="name">SR CORE SOLUTIONS</div>
-      </a>
-      <div class="links" role="navigation" aria-label="Site links">
-        <a href="services.html">Services</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a class="cta" href="contact.html">Request Support</a>
+
+<body class="text-slate-700 antialiased selection:bg-navy-700 selection:text-white overflow-x-hidden">
+
+  <!-- NAV -->
+  <nav class="fixed w-full z-50 glass-nav shadow-[0_6px_18px_-14px_rgba(2,32,96,0.25)]" id="navbar">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+
+        <div class="flex items-center gap-3">
+          <img class="h-12 w-auto" src="SR - Navy Transparent BG.png"
+               onerror="this.style.display='none'; document.getElementById('logo-text').style.display='block';"
+               alt="SR Core Solutions Logo" />
+          <span id="logo-text" class="hidden text-lg font-extrabold tracking-[0.18em] uppercase text-navy-700">
+            SR Core <span class="font-light">Solutions</span>
+          </span>
+        </div>
+
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#home" class="text-xs font-bold text-slate-600 hover:text-navy-700 uppercase tracking-[0.18em] transition">Home</a>
+          <a href="#about" class="text-xs font-bold text-slate-600 hover:text-navy-700 uppercase tracking-[0.18em] transition">About</a>
+          <a href="#services" class="text-xs font-bold text-slate-600 hover:text-navy-700 uppercase tracking-[0.18em] transition">Services</a>
+          <a href="#process" class="text-xs font-bold text-slate-600 hover:text-navy-700 uppercase tracking-[0.18em] transition">Process</a>
+          <a href="#contact" class="px-5 py-2.5 bg-navy-700 text-white text-xs font-bold uppercase tracking-[0.18em] rounded-lg hover:bg-navy-800 transition shadow-soft focus-ring">
+            Contact
+          </a>
+        </div>
+
+        <div class="md:hidden">
+          <button id="mobile-menu-btn" class="p-2 text-navy-700 rounded-lg focus-ring">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
       </div>
-      <button class="menuBtn" data-menu-btn aria-expanded="false" aria-controls="mobileMenu">Menu</button>
-    </nav>
-    <div id="mobileMenu" class="mobile" data-mobile>
-      <a href="services.html">Services</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a class="cta" style="display:inline-flex; margin-top:8px" href="contact.html">Request Support</a>
     </div>
-  </div>
-</header>
 
-<main>
-  <section class="section">
-    <div class="container">
-      <div class="card pad">
-        <div class="kicker">About</div>
-        <h1 class="h1" style="margin-top:14px; color:var(--navy)">The Backbone of Your Operations.</h1>
-        <p class="lead" style="margin-top:12px">
-          At SR Core Solutions, we specialize in operational initiation and management for businesses in the power generation and industrial sectors. With 18+ years of experience across multiple industries, we deliver practical systems and dependable execution that help organizations scale with confidence.
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 shadow-xl">
+      <div class="max-w-6xl mx-auto px-4 py-4 space-y-2">
+        <a href="#home" class="block px-3 py-2 text-sm font-bold text-slate-700 hover:text-navy-700 hover:bg-slate-50 rounded uppercase tracking-wider">Home</a>
+        <a href="#about" class="block px-3 py-2 text-sm font-bold text-slate-700 hover:text-navy-700 hover:bg-slate-50 rounded uppercase tracking-wider">About</a>
+        <a href="#services" class="block px-3 py-2 text-sm font-bold text-slate-700 hover:text-navy-700 hover:bg-slate-50 rounded uppercase tracking-wider">Services</a>
+        <a href="#process" class="block px-3 py-2 text-sm font-bold text-slate-700 hover:text-navy-700 hover:bg-slate-50 rounded uppercase tracking-wider">Process</a>
+        <a href="#contact" class="block px-3 py-2 text-sm font-bold text-navy-700 hover:bg-slate-50 rounded uppercase tracking-wider">Contact</a>
+      </div>
+    </div>
+  </nav>
+<!-- HERO -->
+<section id="home" class="section-anchor relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-white">
+  <!-- soft background depth -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute -top-24 -right-24 w-[480px] h-[480px] rounded-full bg-navy-50 blur-3xl"></div>
+    <div class="absolute -bottom-28 -left-24 w-[520px] h-[520px] rounded-full bg-slate-50 blur-3xl"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(15,23,42,0.06)_1px,transparent_0)] [background-size:22px_22px] opacity-40"></div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+      <!-- TEXT COLUMN -->
+      <div class="lg:col-span-7">
+        <div data-aos="fade-right" class="inline-flex items-center gap-3 mb-5 sm:mb-6">
+          <span class="h-1 w-10 bg-navy-700"></span>
+          <span class="text-navy-700 text-[11px] sm:text-xs font-bold uppercase tracking-[0.22em]">
+            Power Generation • Industrial
+          </span>
+        </div>
+
+        <h1
+          data-aos="fade-up"
+          data-aos-delay="80"
+          class="text-[2.35rem] sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.1] sm:leading-[1.08] tracking-tight overflow-visible"
+        >
+          The Backbone of Your Operations.
+          <span class="block text-transparent bg-clip-text bg-gradient-to-r from-navy-700 to-navy-600 inline-block pb-1">
+            Keeps Projects Moving.
+          </span>
+        </h1>
+
+        <p
+          data-aos="fade-up"
+          data-aos-delay="160"
+          class="mt-4 sm:mt-6 text-[15px] sm:text-lg text-slate-600 max-w-xl leading-relaxed"
+        >
+          SR Core Solutions streamlines vendor onboarding, procurement, compliance documentation, and back-office execution—built for high-stakes environments where delays cost real money.
         </p>
+
+        <div
+          data-aos="fade-up"
+          data-aos-delay="240"
+          class="mt-7 sm:mt-10 flex flex-wrap gap-3 sm:gap-4"
+        >
+          <a
+            href="#contact"
+            class="px-6 sm:px-8 py-3 sm:py-4 bg-navy-700 text-white font-bold rounded-xl shadow-soft hover:bg-navy-900 transition transform hover:-translate-y-0.5 uppercase tracking-wider text-[12px] sm:text-sm focus-ring"
+          >
+            Request a Quote
+          </a>
+          <a
+            href="#services"
+            class="px-6 sm:px-8 py-3 sm:py-4 bg-white text-navy-700 border border-slate-200 font-bold rounded-xl shadow-ring hover:border-navy-700 transition transform hover:-translate-y-0.5 uppercase tracking-wider text-[12px] sm:text-sm focus-ring"
+          >
+            Explore Services
+          </a>
+        </div>
+
+        <!-- credibility strip -->
+        <div
+          data-aos="fade-up"
+          data-aos-delay="320"
+          class="mt-8 sm:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4"
+        >
+          <div class="bg-white/80 rounded-xl p-3 sm:p-4 shadow-ring">
+            <p class="text-[10px] sm:text-xs uppercase tracking-widest text-slate-500 font-bold">Focus</p>
+            <p class="mt-1 font-bold text-slate-900 text-[13px] sm:text-sm">Execution</p>
+          </div>
+          <div class="bg-white/80 rounded-xl p-3 sm:p-4 shadow-ring">
+            <p class="text-[10px] sm:text-xs uppercase tracking-widest text-slate-500 font-bold">Compliance</p>
+            <p class="mt-1 font-bold text-slate-900 text-[13px] sm:text-sm">ISNetworld</p>
+          </div>
+          <div class="bg-white/80 rounded-xl p-3 sm:p-4 shadow-ring">
+            <p class="text-[10px] sm:text-xs uppercase tracking-widest text-slate-500 font-bold">Model</p>
+            <p class="mt-1 font-bold text-slate-900 text-[13px] sm:text-sm">Remote First</p>
+          </div>
+          <div class="bg-white/80 rounded-xl p-3 sm:p-4 shadow-ring">
+            <p class="text-[10px] sm:text-xs uppercase tracking-widest text-slate-500 font-bold">Coverage</p>
+            <p class="mt-1 font-bold text-slate-900 text-[13px] sm:text-sm">Nationwide</p>
+          </div>
+        </div>
       </div>
 
-      <div class="section tight">
-        <div class="grid" style="grid-template-columns: 1fr 1fr; gap:18px">
-          <div class="card pad">
-            <h2 class="h2" style="color:var(--navy)">How we support teams</h2>
-            <p class="muted" style="margin-top:10px">
-              Whether you are launching a new venture or reorganizing an existing organization, we provide administrative and operational execution support that strengthens delivery.
-            </p>
-            <ul class="list" style="margin-top:14px">
-              <li><div class="icon">✓</div><div><b>Honesty & integrity</b><div class="muted">Clear expectations and transparent execution.</div></div></li>
-              <li><div class="icon">✓</div><div><b>Operational rigor</b><div class="muted">Vendor, procurement, documentation, and financial workflows that hold up under pressure.</div></div></li>
-              <li><div class="icon">✓</div><div><b>Nationwide reach</b><div class="muted">Remote service model with responsive support.</div></div></li>
-            </ul>
+      <!-- IMAGE COLUMN (no crop + smaller on mobile) -->
+      <div data-aos="fade-left" data-aos-delay="180" class="lg:col-span-5">
+        <div class="relative rounded-2xl overflow-hidden shadow-card bg-navy-900 border border-white/10">
+
+          <!-- Mobile: compact height | Desktop: larger panel -->
+          <div class="relative w-full aspect-[16/9] max-h-[220px] sm:max-h-none sm:aspect-[4/3] lg:aspect-[16/10]">
+            <img
+              src="https://2pbqjgxycewduhvh.public.blob.vercel-storage.com/SR%20Core%20Solutions-%20Navy%20BG%20.png"
+              alt="SR Core Solutions"
+              class="absolute inset-0 w-full h-full object-cover p-3 sm:p-6 lg:p-8"
+            />
           </div>
 
-          <div class="card pad" style="background: linear-gradient(180deg, rgba(29,78,216,.10), #fff);">
-            <h2 class="h2" style="color:var(--navy)">Experience</h2>
-            <p class="lead" style="margin-top:10px">
-              Although SR Core Solutions was recently established as a private entity, the team’s operational experience spans more than 18 years across customers, vendors, and project teams.
+          <!-- subtle depth overlay -->
+          <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ABOUT -->
+<section id="about" class="section-anchor py-16 sm:py-20 bg-slate-50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+
+      <!-- Image: hidden on mobile/tablet, visible on desktop -->
+      <div data-aos="fade-right" class="hidden lg:block lg:col-span-5">
+        <div class="rounded-2xl overflow-hidden shadow-card border border-slate-200 bg-white">
+          <img
+            src="https://2pbqjgxycewduhvh.public.blob.vercel-storage.com/Gemini_Generated_Image_j82ghvj82ghvj82g.png"
+            alt="Professional operations meeting"
+            class="w-full h-[420px] object-cover"
+          />
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div data-aos="fade-left" class="lg:col-span-7">
+        <p class="text-navy-700 text-[11px] sm:text-xs font-bold uppercase tracking-[0.22em]">
+          Who We Are
+        </p>
+
+        <h2 class="mt-3 text-[1.85rem] sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+          Built for precision, urgency, and accountability.
+        </h2>
+
+        <p class="mt-4 sm:mt-6 text-[15px] sm:text-base text-slate-600 leading-relaxed">
+          We deliver operational support that reduces friction, accelerates approvals, and keeps vendor, compliance, and procurement workflows aligned.
+        </p>
+
+        <div class="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="bg-white rounded-xl p-5 shadow-ring border border-slate-200">
+            <p class="text-sm font-bold text-slate-900">Operational Execution</p>
+            <p class="mt-1 text-sm text-slate-600">
+              Project coordination, logistics, documentation control, travel, and closeout support.
             </p>
-            <div style="margin-top:14px" class="pill">
-              <div class="icon">★</div>
-              <div>
-                <b>What that means for you</b>
-                <div class="muted">Fewer surprises, faster mobilization, and cleaner project execution.</div>
-              </div>
+          </div>
+
+          <div class="bg-white rounded-xl p-5 shadow-ring border border-slate-200">
+            <p class="text-sm font-bold text-slate-900">Vendor + Compliance</p>
+            <p class="mt-1 text-sm text-slate-600">
+              ISNetworld management, prequalification, contract setup, and relationship handling.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-xl p-5 shadow-ring border border-slate-200">
+            <p class="text-sm font-bold text-slate-900">Procurement Support</p>
+            <p class="mt-1 text-sm text-slate-600">
+              Sourcing, PO administration, delivery coordination, and cost discipline.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-xl p-5 shadow-ring border border-slate-200">
+            <p class="text-sm font-bold text-slate-900">Process Formation</p>
+            <p class="mt-1 text-sm text-slate-600">
+              Repeatable workflows: timesheets, expenses, reporting templates, and SOPs.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- SERVICES -->
+  <section id="services" class="section-anchor py-20 sm:py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center max-w-2xl mx-auto">
+        <p class="text-navy-700 text-[11px] sm:text-xs font-bold uppercase tracking-[0.22em]">Services</p>
+        <h2 class="mt-3 text-[1.85rem] sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">Comprehensive support, executed cleanly.</h2>
+        <p class="mt-4 sm:mt-5 text-[15px] sm:text-base text-slate-600">Modular services. Enterprise-level professionalism. Rapid execution when timelines are tight.</p>
+      </div>
+
+      <div class="mt-10 sm:mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        <div data-aos="fade-up" class="group bg-white rounded-2xl p-7 sm:p-8 border border-slate-200 shadow-ring hover:shadow-card transition card-hover">
+          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-navy-50 flex items-center justify-center border border-slate-200 group-hover:border-navy-700 transition">
+            <i class="fas fa-tasks text-navy-700"></i>
+          </div>
+          <h3 class="mt-5 sm:mt-6 font-bold text-slate-900 text-[1.05rem] sm:text-lg">Operational Execution</h3>
+          <p class="mt-3 text-[14px] sm:text-sm text-slate-600 leading-relaxed">
+            Vendor setup, scheduling coordination, documentation, logistics, and administrative execution to keep work moving.
+          </p>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="80" class="group bg-white rounded-2xl p-7 sm:p-8 border border-slate-200 shadow-ring hover:shadow-card transition card-hover">
+          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-navy-50 flex items-center justify-center border border-slate-200 group-hover:border-navy-700 transition">
+            <i class="fas fa-shield-alt text-navy-700"></i>
+          </div>
+          <h3 class="mt-5 sm:mt-6 font-bold text-slate-900 text-[1.05rem] sm:text-lg">ISNetworld Management</h3>
+          <p class="mt-3 text-[14px] sm:text-sm text-slate-600 leading-relaxed">
+            Account creation, restoration, maintenance, and compliance coordination to keep you in good standing.
+          </p>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="160" class="group bg-white rounded-2xl p-7 sm:p-8 border border-slate-200 shadow-ring hover:shadow-card transition card-hover">
+          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-navy-50 flex items-center justify-center border border-slate-200 group-hover:border-navy-700 transition">
+            <i class="fas fa-handshake text-navy-700"></i>
+          </div>
+          <h3 class="mt-5 sm:mt-6 font-bold text-slate-900 text-[1.05rem] sm:text-lg">Vendor Relations</h3>
+          <p class="mt-3 text-[14px] sm:text-sm text-slate-600 leading-relaxed">
+            Contract setup, agreement review, rate negotiation support, and vendor list development.
+          </p>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="240" class="group bg-white rounded-2xl p-7 sm:p-8 border border-slate-200 shadow-ring hover:shadow-card transition card-hover">
+          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-navy-50 flex items-center justify-center border border-slate-200 group-hover:border-navy-700 transition">
+            <i class="fas fa-shipping-fast text-navy-700"></i>
+          </div>
+          <h3 class="mt-5 sm:mt-6 font-bold text-slate-900 text-[1.05rem] sm:text-lg">Procurement</h3>
+          <p class="mt-3 text-[14px] sm:text-sm text-slate-600 leading-relaxed">
+            Sourcing, PO support, delivery coordination, and tracking to reduce downtime and cost overruns.
+          </p>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="320" class="group bg-white rounded-2xl p-7 sm:p-8 border border-slate-200 shadow-ring hover:shadow-card transition card-hover">
+          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-navy-50 flex items-center justify-center border border-slate-200 group-hover:border-navy-700 transition">
+            <i class="fas fa-file-invoice-dollar text-navy-700"></i>
+          </div>
+          <h3 class="mt-5 sm:mt-6 font-bold text-slate-900 text-[1.05rem] sm:text-lg">Customer Invoicing</h3>
+          <p class="mt-3 text-[14px] sm:text-sm text-slate-600 leading-relaxed">
+            Support documentation collection and invoicing workflows (requires client system access, e.g., QuickBooks).
+          </p>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="400" class="group bg-white rounded-2xl p-7 sm:p-8 border border-slate-200 shadow-ring hover:shadow-card transition card-hover">
+          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-navy-50 flex items-center justify-center border border-slate-200 group-hover:border-navy-700 transition">
+            <i class="fas fa-project-diagram text-navy-700"></i>
+          </div>
+          <h3 class="mt-5 sm:mt-6 font-bold text-slate-900 text-[1.05rem] sm:text-lg">Process Formation</h3>
+          <p class="mt-3 text-[14px] sm:text-sm text-slate-600 leading-relaxed">
+            Build repeatable documentation and procedures: reporting templates, SOPs, timesheets, expense packets, and more.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-12 sm:mt-16 grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-7 bg-slate-50 rounded-2xl p-7 sm:p-8 border border-slate-200 shadow-ring card-hover">
+          <h3 class="text-lg sm:text-xl font-extrabold text-slate-900">Industries served</h3>
+          <p class="mt-2 text-[14px] sm:text-sm text-slate-600">Support designed for environments where compliance and execution are non-negotiable.</p>
+          <div class="mt-5 sm:mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+            <div class="flex items-center gap-3 bg-white rounded-xl p-4 border border-slate-200">
+              <i class="fas fa-bolt text-navy-700"></i><span class="font-semibold text-slate-900">Power Generation</span>
             </div>
-            <div style="margin-top:16px">
-              <a class="btn primary" href="services.html">See services</a>
-              <a class="btn" href="contact.html">Contact</a>
+            <div class="flex items-center gap-3 bg-white rounded-xl p-4 border border-slate-200">
+              <i class="fas fa-industry text-navy-700"></i><span class="font-semibold text-slate-900">Industrial Services</span>
+            </div>
+            <div class="flex items-center gap-3 bg-white rounded-xl p-4 border border-slate-200">
+              <i class="fas fa-helmet-safety text-navy-700"></i><span class="font-semibold text-slate-900">Contractor Compliance</span>
+            </div>
+            <div class="flex items-center gap-3 bg-white rounded-xl p-4 border border-slate-200">
+              <i class="fas fa-file-contract text-navy-700"></i><span class="font-semibold text-slate-900">Vendor / Contract Admin</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 bg-white rounded-2xl p-7 sm:p-8 border border-slate-200 shadow-ring card-hover">
+          <h3 class="text-lg sm:text-xl font-extrabold text-slate-900">Performance mindset</h3>
+          <p class="mt-2 text-[14px] sm:text-sm text-slate-600">You get clear communication and measurable execution.</p>
+          <div class="mt-5 sm:mt-6 space-y-4">
+            <div class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-navy-700 mt-0.5"></i>
+              <p class="text-[14px] sm:text-sm text-slate-700"><span class="font-bold text-slate-900">Tight documentation control</span> to reduce rework and approval delays.</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-navy-700 mt-0.5"></i>
+              <p class="text-[14px] sm:text-sm text-slate-700"><span class="font-bold text-slate-900">Vendor discipline</span> to keep contracts, COIs, and compliance clean.</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-navy-700 mt-0.5"></i>
+              <p class="text-[14px] sm:text-sm text-slate-700"><span class="font-bold text-slate-900">Procurement velocity</span> with cost-awareness and tracking.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div id="testimonials" class="section tight">
-        <div class="card pad">
-          <h2 class="h2" style="color:var(--navy)">Testimonials</h2>
-          <p class="muted" style="margin-top:8px">Selected feedback from prior roles and project engagements.</p>
+    </div>
+  </section>
 
-          <div class="grid" style="grid-template-columns: 1fr 1fr; gap:16px; margin-top:14px">
-            <div class="card pad" style="box-shadow:none">
-              <div class="quote">
-                “Working with Sadie Rachel (SR Core Solutions) has been nothing short of exceptional. Sadie has been literally the backbone of every company that I have become a part of over the past 15 years of my career.
-                What truly sets her and SR Core Solutions apart is their office support—professionalism, deep technical knowledge, and a genuine commitment to helping who she works for succeed. In an industry where downtime is costly, having a partner this dependable is invaluable.”
-              </div>
-              <div class="quoteFooter">Chris Green</div>
-              <div class="quoteMeta">Former President, Trinity Turbine Services LLC • Former Vice President, Pro Energy • Former Director/VP, Universal Plant Services</div>
-            </div>
+  <!-- PROCESS -->
+  <section id="process" class="section-anchor py-20 sm:py-24 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto">
+        <p class="text-navy-700 text-[11px] sm:text-xs font-bold uppercase tracking-[0.22em]">How it works</p>
+        <h2 class="mt-3 text-[1.85rem] sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">A simple process that supports complex work.</h2>
+      </div>
 
-            <div class="card pad" style="box-shadow:none">
-              <div class="quote">
-                “When I came to work for Sadie my knowledge in her field of expertise was limited. The patience and vast amount of knowledge Sadie (SR Core Solutions) exhumed allowed me to learn an extraordinary amount.
-                Her organizational skills are unmatched… When her name was on a project, it always made the customers feel at ease and reassured them the job would get done correctly, efficiently and cost effectively.”
-              </div>
-              <div class="quoteFooter">KH</div>
-              <div class="quoteMeta">Former employee • Trinity Turbine Services</div>
-            </div>
+      <div class="mt-10 sm:mt-14 grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+        <div data-aos="fade-up" class="bg-white rounded-2xl p-7 sm:p-8 border border-slate-200 shadow-ring card-hover">
+          <p class="text-[10px] sm:text-xs uppercase tracking-widest text-slate-500 font-bold">Step 01</p>
+          <h3 class="mt-2 text-[1.05rem] sm:text-lg font-extrabold text-slate-900">Scope + Intake</h3>
+          <p class="mt-3 text-[14px] sm:text-sm text-slate-600">We align on objectives, timelines, vendor constraints, and required documentation.</p>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="80" class="bg-white rounded-2xl p-7 sm:p-8 border border-slate-200 shadow-ring card-hover">
+          <p class="text-[10px] sm:text-xs uppercase tracking-widest text-slate-500 font-bold">Step 02</p>
+          <h3 class="mt-2 text-[1.05rem] sm:text-lg font-extrabold text-slate-900">Execution</h3>
+          <p class="mt-3 text-[14px] sm:text-sm text-slate-600">Vendor onboarding, procurement, tracking, and communication cadence—handled end-to-end.</p>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="160" class="bg-white rounded-2xl p-7 sm:p-8 border border-slate-200 shadow-ring card-hover">
+          <p class="text-[10px] sm:text-xs uppercase tracking-widest text-slate-500 font-bold">Step 03</p>
+          <h3 class="mt-2 text-[1.05rem] sm:text-lg font-extrabold text-slate-900">Closeout</h3>
+          <p class="mt-3 text-[14px] sm:text-sm text-slate-600">Documentation package, invoice support, and process improvements for repeatable success.</p>
+        </div>
+      </div>
+
+      <div class="mt-10 sm:mt-12 bg-white rounded-2xl p-7 sm:p-8 border border-slate-200 shadow-ring card-hover">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div>
+            <p class="text-[10px] sm:text-xs uppercase tracking-widest text-slate-500 font-bold">Response</p>
+            <p class="mt-2 text-2xl font-extrabold text-slate-900">Fast</p>
+            <p class="mt-1 text-[14px] sm:text-sm text-slate-600">Clear cadence and follow-through.</p>
           </div>
-
-          <div class="note" style="margin-top:14px">
-            Additional testimonials and LinkedIn presence can be added as they become available.
+          <div>
+            <p class="text-[10px] sm:text-xs uppercase tracking-widest text-slate-500 font-bold">Documentation</p>
+            <p class="mt-2 text-2xl font-extrabold text-slate-900">Tight</p>
+            <p class="mt-1 text-[14px] sm:text-sm text-slate-600">Reduce rework and re-approval loops.</p>
+          </div>
+          <div>
+            <p class="text-[10px] sm:text-xs uppercase tracking-widest text-slate-500 font-bold">Compliance</p>
+            <p class="mt-2 text-2xl font-extrabold text-slate-900">Ready</p>
+            <p class="mt-1 text-[14px] sm:text-sm text-slate-600">ISNetworld coordination support.</p>
+          </div>
+          <div>
+            <p class="text-[10px] sm:text-xs uppercase tracking-widest text-slate-500 font-bold">Coverage</p>
+            <p class="mt-2 text-2xl font-extrabold text-slate-900">Nationwide</p>
+            <p class="mt-1 text-[14px] sm:text-sm text-slate-600">Remote-first services from Texas.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
-</main>
 
-<footer class="footer">
-  <div class="container footerGrid">
-    <div class="mini">
-      <img src="assets/img/logo.png" alt="SR Core Solutions logo" style="max-width:320px"/>
-      <div class="muted">The Backbone of Your Operations.</div>
-      <div class="badge">Remote operational support — Nationwide</div>
-    </div>
-    <div class="mini">
-      <div class="h3">Contact</div>
-      <div><a href="mailto:sadie@srcoresolutions.com">sadie@srcoresolutions.com</a></div>
-      <div><a href="tel:+12819614159">(281) 961-4159</a></div>
-      <div class="muted">League City, TX 77573</div>
-      <div class="note">Preferred contact method: Email</div>
-      <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:8px">
-        <a class="btn" href="services.html">View Services</a>
-        <a class="btn primary" href="contact.html">Start a Conversation</a>
+  <!-- TESTIMONIAL -->
+<section id="testimonials" class="section-anchor py-12 sm:py-16 bg-navy-900 relative overflow-hidden">
+  <div class="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80')] bg-cover bg-center"></div>
+  <div class="absolute inset-0 bg-navy-900/90"></div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- compact card -->
+    <div class="mx-auto max-w-3xl rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-5 sm:p-7 shadow-card">
+      <div class="flex items-center justify-center mb-4 sm:mb-5">
+        <div class="w-10 h-10 sm:w-11 sm:h-11 bg-white/10 rounded-xl flex items-center justify-center">
+          <i class="fas fa-quote-left text-sm sm:text-base text-white/90"></i>
+        </div>
       </div>
-      <div class="note" style="margin-top:10px"><a href="privacy.html">Privacy Policy</a></div>
-      <div class="note" style="margin-top:10px">© <span id="y"></span> SR Core Solutions LLC. All rights reserved.</div>
+
+      <blockquote
+        id="testimonial-text"
+        class="relative text-[0.95rem] sm:text-[1.05rem] md:text-lg font-light italic leading-relaxed text-white/95 transition-opacity duration-700
+               max-h-[8.5rem] sm:max-h-[8.25rem] md:max-h-[7.75rem] overflow-hidden mx-auto"
+      >
+        <!-- injected by JS -->
+        <span class="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-navy-900/95 to-transparent"></span>
+      </blockquote>
+
+      <div
+        id="testimonial-author"
+        class="mt-4 sm:mt-5 flex flex-col items-center gap-0.5 transition-opacity duration-700"
+      >
+        <div id="testimonial-name" class="font-extrabold text-[0.9rem] sm:text-base text-white tracking-wider"></div>
+        <div
+          id="testimonial-company"
+          class="text-[10px] sm:text-[11px] font-bold text-navy-50/80 uppercase tracking-[0.22em] text-center max-w-[36rem]"
+        ></div>
+      </div>
+
+      <div class="mt-5 sm:mt-6 flex items-center justify-center gap-3">
+        <button
+          id="testimonial-prev"
+          type="button"
+          class="h-10 w-10 sm:h-11 sm:w-11 rounded-xl bg-white/10 border border-white/15 text-white hover:bg-white/15 active:scale-95 transition focus:outline-none focus:ring-4 focus:ring-white/20"
+          aria-label="Previous testimonial"
+        >
+          <i class="fas fa-chevron-left text-sm"></i>
+        </button>
+
+        <div id="testimonial-dots" class="flex items-center gap-2"></div>
+
+        <button
+          id="testimonial-next"
+          type="button"
+          class="h-10 w-10 sm:h-11 sm:w-11 rounded-xl bg-white/10 border border-white/15 text-white hover:bg-white/15 active:scale-95 transition focus:outline-none focus:ring-4 focus:ring-white/20"
+          aria-label="Next testimonial"
+        >
+          <i class="fas fa-chevron-right text-sm"></i>
+        </button>
+      </div>
     </div>
   </div>
-</footer>
-<script src="assets/site.js"></script>
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</section>
+
+
+  <!-- FAQ -->
+  <section class="py-20 sm:py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <p class="text-navy-700 text-[11px] sm:text-xs font-bold uppercase tracking-[0.22em]">FAQ</p>
+        <h2 class="mt-3 text-[1.85rem] sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">Quick answers for buyers.</h2>
+      </div>
+
+      <div class="mt-10 sm:mt-12 space-y-4">
+        <details class="group bg-slate-50 rounded-2xl p-5 sm:p-6 border border-slate-200 faq-item">
+          <summary class="cursor-pointer list-none flex items-center justify-between font-bold text-slate-900 text-[15px] sm:text-base">
+            What types of clients do you typically support?
+            <i class="fas fa-chevron-down text-slate-500 group-open:rotate-180 transition"></i>
+          </summary>
+          <div class="faq-content">
+            <div class="faq-content-inner">
+              <p class="text-[14px] sm:text-sm text-slate-600 leading-relaxed">
+                Power generation and industrial teams needing consistent administrative execution: vendor onboarding, procurement support, compliance workflows, documentation packages, and closeout.
+              </p>
+            </div>
+          </div>
+        </details>
+
+        <details class="group bg-slate-50 rounded-2xl p-5 sm:p-6 border border-slate-200 faq-item">
+          <summary class="cursor-pointer list-none flex items-center justify-between font-bold text-slate-900 text-[15px] sm:text-base">
+            Do you provide remote services nationwide?
+            <i class="fas fa-chevron-down text-slate-500 group-open:rotate-180 transition"></i>
+          </summary>
+          <div class="faq-content">
+            <div class="faq-content-inner">
+              <p class="text-[14px] sm:text-sm text-slate-600 leading-relaxed">
+                Yes. SR Core Solutions is remote-first, based in League City, Texas, and supports clients nationwide.
+              </p>
+            </div>
+          </div>
+        </details>
+
+        <details class="group bg-slate-50 rounded-2xl p-5 sm:p-6 border border-slate-200 faq-item">
+          <summary class="cursor-pointer list-none flex items-center justify-between font-bold text-slate-900 text-[15px] sm:text-base">
+            Can you work inside our systems (ISNetworld, QuickBooks, etc.)?
+            <i class="fas fa-chevron-down text-slate-500 group-open:rotate-180 transition"></i>
+          </summary>
+          <div class="faq-content">
+            <div class="faq-content-inner">
+              <p class="text-[14px] sm:text-sm text-slate-600 leading-relaxed">
+                Yes, with appropriate access and permissions. Invoicing support typically requires client-provided access to accounting systems.
+              </p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section-anchor py-20 sm:py-24 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div data-aos="fade-right" class="lg:col-span-5">
+          <p class="text-navy-700 text-[11px] sm:text-xs font-bold uppercase tracking-[0.22em]">Contact</p>
+          <h2 class="mt-3 text-[1.85rem] sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">Request a quote or consultation.</h2>
+          <p class="mt-4 sm:mt-5 text-[15px] sm:text-base text-slate-600 leading-relaxed">
+            Tell us what you’re working on and where support is needed. We’ll respond with next steps and a clear scope.
+          </p>
+
+          <div class="mt-8 sm:mt-10 space-y-4">
+            <div class="flex items-center gap-4 bg-white rounded-2xl p-4 sm:p-5 border border-slate-200 shadow-ring">
+              <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-navy-700 text-white flex items-center justify-center">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <p class="text-[10px] sm:text-xs uppercase tracking-widest text-slate-500 font-bold">Email</p>
+                <a class="font-bold text-navy-700 hover:text-navy-900" href="mailto:sadie@srcoresolutions.com">sadie@srcoresolutions.com</a>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 bg-white rounded-2xl p-4 sm:p-5 border border-slate-200 shadow-ring">
+              <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white border border-slate-200 text-navy-700 flex items-center justify-center">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div>
+                <p class="text-[10px] sm:text-xs uppercase tracking-widest text-slate-500 font-bold">Phone</p>
+                <a class="font-bold text-slate-700 hover:text-navy-700" href="tel:2819614159">281-961-4159</a>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 bg-white rounded-2xl p-4 sm:p-5 border border-slate-200 shadow-ring">
+              <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white border border-slate-200 text-navy-700 flex items-center justify-center">
+                <i class="fas fa-location-dot"></i>
+              </div>
+              <div>
+                <p class="text-[10px] sm:text-xs uppercase tracking-widest text-slate-500 font-bold">Location</p>
+                <p class="font-bold text-slate-700">League City, TX 77573</p>
+                <p class="text-[10px] sm:text-xs text-slate-500 uppercase tracking-widest mt-1">Nationwide Remote Services</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div data-aos="fade-left" class="lg:col-span-7">
+          <div class="bg-white rounded-2xl p-6 sm:p-8 md:p-10 border border-slate-200 shadow-card">
+            <form action="https://formspree.io/f/mnjdqyge" method="POST" class="space-y-5 sm:space-y-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+                <div>
+                  <label class="block text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Name</label>
+                  <input class="w-full px-4 py-3 rounded-xl border border-slate-200 shadow-ring focus-ring bg-slate-50/70 placeholder:text-slate-400 focus:bg-white" type="text" name="name" placeholder="Full name" required>
+                </div>
+                <div>
+                  <label class="block text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Email</label>
+                  <input class="w-full px-4 py-3 rounded-xl border border-slate-200 shadow-ring focus-ring bg-slate-50/70 placeholder:text-slate-400 focus:bg-white" type="email" name="email" placeholder="you@company.com" required>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Message</label>
+                <textarea class="w-full px-4 py-3 rounded-xl border border-slate-200 shadow-ring focus-ring bg-slate-50/70 placeholder:text-slate-400 focus:bg-white" name="message" rows="5" placeholder="Briefly describe your project scope, timeline, and support needs." required></textarea>
+              </div>
+
+              <button type="submit"
+                      class="w-full py-3.5 sm:py-4 rounded-xl bg-navy-700 text-white font-extrabold uppercase tracking-[0.18em] shadow-soft hover:bg-navy-800 transition transform hover:-translate-y-0.5 text-[12px] sm:text-base">
+                Send Message
+              </button>
+
+              <p class="text-[11px] sm:text-xs text-slate-500 leading-relaxed">
+                By submitting, you agree to be contacted regarding your inquiry. No spam—ever.
+              </p>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-navy-950 text-white border-t border-navy-900">
+    <div class="max-w-6xl mx-auto py-10 sm:py-12 px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-start gap-8 border-b border-white/10 pb-8">
+        <div>
+          <p class="text-base sm:text-lg font-extrabold tracking-[0.18em] uppercase">SR Core <span class="font-light text-white/70">Solutions</span></p>
+          <p class="mt-3 sm:mt-4 text-[13px] sm:text-sm text-white/70 max-w-sm leading-relaxed">
+            Operational execution, vendor relations, and procurement support for power generation and industrial teams.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-10 text-sm">
+          <div>
+            <p class="text-[10px] sm:text-xs uppercase tracking-[0.22em] font-bold text-white/70 mb-3">Company</p>
+            <ul class="space-y-2 text-white/70 text-[13px] sm:text-sm">
+              <li><a class="hover:text-white transition" href="#about">About</a></li>
+              <li><a class="hover:text-white transition" href="#services">Services</a></li>
+              <li><a class="hover:text-white transition" href="#process">Process</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="text-[10px] sm:text-xs uppercase tracking-[0.22em] font-bold text-white/70 mb-3">Connect</p>
+            <ul class="space-y-2 text-white/70 text-[13px] sm:text-sm">
+              <li><a class="hover:text-white transition" href="#contact">Contact</a></li>
+              <li><a class="hover:text-white transition" href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6 sm:mt-8 flex flex-col md:flex-row justify-between items-center text-[11px] sm:text-xs text-white/60 gap-3">
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> SR Core Solutions LLC. All rights reserved.</p>
+        <p class="italic">The Backbone of Your Operations.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 750, once: true, offset: 40, easing: "ease-out-cubic" });
+
+    const btn = document.getElementById("mobile-menu-btn");
+    const menu = document.getElementById("mobile-menu");
+
+    btn.addEventListener("click", () => menu.classList.toggle("hidden"));
+    menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => menu.classList.add("hidden")));
+
+    // FAQ: smooth open + single item expanded
+    const faqItems = Array.from(document.querySelectorAll(".faq-item"));
+    faqItems.forEach((item) => {
+      item.addEventListener("toggle", () => {
+        if (!item.open) return;
+        faqItems.forEach((other) => {
+          if (other !== item) other.open = false;
+        });
+      });
+    });
+
+    // Testimonials rotator (cycles without changing layout height)
+    (function () {
+      const testimonials = [
+        {
+          text: "Working with Sadie Rachel (SR Core Solutions) has been nothing short of exceptional. Sadie has been literally the backbone of every company that I have become a part of over the past 15 years of my career. Sadie, who is now owner of SR Core Solutions, is among the most reliable and innovative in the power and industrial sector — precise, durable, and designed with real-world challenges in mind. What truly sets her and SR Core Solutions apart, though, is their office support. Every interaction is met with professionalism, deep technical knowledge, and a genuine commitment to helping who she works for succeed. Whether it’s troubleshooting, invoicing, optimizing performance, creating datasheets, setting up an office, reports or simply answering a quick question, responds with speed and clarity. In an industry where downtime is costly, having a partner this dependable is invaluable. Sadie and SR Core Solutions have been a trusted ally in every operation for the past 15 years that I have been a part of.",
+          name: "Chris Green",
+          company: "Former President, Trinity Turbine Services LLC • Former VP, Pro Energy • Former Director & VP, Universal Plant Services"
+        },
+        {
+          text: "When I came to work for Sadie my knowledge in her field of expertise was limited. I had financial experience but when it came to the operations and job execution I was at a loss. The patience and vast amount of knowledge Sadie (SR Core Solutions) exhumed allowed me to learn an extraordinary amount. I’ve worked for many companies throughout my career and have never had anyone demonstrate and teach me so much. Her organizational skills are unmatched. I am continuously in awe of her ability to manage any project, especially emergency jobs, setting up a variety of items such as vendors, crews, safety, financial and customer interface timely, efficiently and always in a professional manner. When her name was on a project, it always made the customers feel ease and reassured them the job would get done correctly, efficiently and cost effectively. Some key highlights of Sadie (SR Core Solutions) are professionalism, problem solver, efficiency, safety knowledge, extremely detail oriented, kind, family focused and a friend. I would highly recommend SR Core Solutions for any of your business needs.",
+          name: "KH",
+          company: "Trinity Turbine Services"
+        },
+        {
+          text: "I have had the opportunity to work closely with Sadie for well over a decade, beginning in 2011, and across multiple companies and facilities. In every role she has held, Sadie has consistently demonstrated a rare combination of technical understanding, administrative precision, and customer-focused execution that is extremely valuable in industrial project environments. She was proactive, detail-driven, and dependable—ensuring that labor data was accurate, timely, and defensible, even in a high-pressure outage environment. One of Sadie’s strongest attributes is her command of contract language and cost structure. She consistently reviewed our agreements in detail, stayed ahead of contract adjustments, and identified potential discrepancies before they became issues. From a site perspective, she made the contractor interface simple, transparent, and low-friction. I would recommend her without hesitation to any industrial site, project team, or asset owner seeking reliable contractor coordination and administrative leadership.",
+          name: "Toby Blankenship",
+          company: "Former client and long-term professional associate"
+        },
+        {
+          text: "I have worked with and along Sadie for over 10 years. When I first met Sadie, I was immediately impressed of her knowledge on every aspect of the job, the support her team needed and her attention to detail. Throughout the years of working together on several different projects, I was able to see the amount of respect and trust her clients had in her to get the job done but more importantly done right. Sadie with no question would be a valued asset for anybody to use on any project.",
+          name: "Mike Ahart",
+          company: "Territory Sales Manager (Houston Area)"
+        },
+        {
+          text: "I had the privilege of working closely with Sadie for several years in the industrial field, and I can say without hesitation that she is one of the sharpest, most capable professionals I’ve ever worked with. She is exceptionally intelligent, detail-oriented, and deeply knowledgeable about industrial operations. She consistently wore multiple hats at once, handling manpower coordination, billing, timesheets, organization and administrative support, safety oversight, daily operations, customer interactions, data entry, and direct support for both field and office management. What truly sets her apart is how well-spoken and composed she is under pressure. Any company or client who gets to work with Sadie is gaining a tremendous asset.",
+          name: "Former Employee",
+          company: "Industrial Operations"
+        },
+        {
+          text: "I have worked with Sadie over the past 10 years and to say that she has been exceptional at what she does would be an understatement. She has been there for me and my team through thick and thin and all hours of the day to support us in and out of the field with any and everything we may have needed. I can say with confidence that she will be the greatest asset to any company or team that requires her diverse skill set and knowledge that she brings to the table.",
+          name: "Raymod Osgood",
+          company: "Project Manager"
+        }
+      ];
+
+      let index = 0;
+
+      const AUTOPLAY_MS = 7000;
+      const MANUAL_PAUSE_MS = 60000;
+
+      let autoplayTimer = null;
+      let resumeTimer = null;
+      let isPaused = false;
+
+      const textEl = document.getElementById("testimonial-text");
+      const nameEl = document.getElementById("testimonial-name");
+      const companyEl = document.getElementById("testimonial-company");
+      const authorWrap = document.getElementById("testimonial-author");
+
+      if (!textEl || !nameEl || !companyEl || !authorWrap) return;
+
+      const section = document.getElementById("testimonials");
+      const prevBtn = document.getElementById("testimonial-prev");
+      const nextBtn = document.getElementById("testimonial-next");
+      const dotsWrap = document.getElementById("testimonial-dots");
+
+      function lockHeights() {
+        const textClone = textEl.cloneNode(true);
+        const authorClone = authorWrap.cloneNode(true);
+
+        [textClone, authorClone].forEach((el) => {
+          el.style.position = "absolute";
+          el.style.visibility = "hidden";
+          el.style.opacity = "1";
+          el.style.left = "-99999px";
+          el.style.top = "0";
+          el.style.height = "auto";
+          el.style.minHeight = "0";
+          el.style.maxHeight = "none";
+          el.style.pointerEvents = "none";
+        });
+
+        const textWidth = textEl.getBoundingClientRect().width;
+        const authorWidth = authorWrap.getBoundingClientRect().width;
+        textClone.style.width = textWidth + "px";
+        authorClone.style.width = authorWidth + "px";
+
+        document.body.appendChild(textClone);
+        document.body.appendChild(authorClone);
+
+        let maxTextH = 0;
+        let maxAuthorH = 0;
+
+        for (const t of testimonials) {
+          textClone.textContent = `"${t.text}"`;
+          maxTextH = Math.max(maxTextH, textClone.getBoundingClientRect().height);
+
+          const cn = authorClone.querySelector("#testimonial-name") || authorClone.querySelector("div");
+          const cc = authorClone.querySelector("#testimonial-company") || authorClone.querySelectorAll("div")[1];
+
+          if (cn) cn.textContent = t.name;
+          if (cc) cc.textContent = t.company;
+
+          maxAuthorH = Math.max(maxAuthorH, authorClone.getBoundingClientRect().height);
+        }
+
+        document.body.removeChild(textClone);
+        document.body.removeChild(authorClone);
+
+        textEl.style.minHeight = Math.ceil(maxTextH) + "px";
+        authorWrap.style.minHeight = Math.ceil(maxAuthorH) + "px";
+      }
+
+      let renderTimer = null;
+      let renderToken = 0;
+
+      function setTransition(enabled) {
+        const duration = enabled ? "700ms" : "0ms";
+        textEl.style.transitionDuration = duration;
+        authorWrap.style.transitionDuration = duration;
+      }
+
+      function render(i, { animate = true } = {}) {
+        renderToken += 1;
+        const token = renderToken;
+
+        if (renderTimer) {
+          clearTimeout(renderTimer);
+          renderTimer = null;
+        }
+
+        if (!animate) {
+          setTransition(false);
+          textEl.style.opacity = "1";
+          authorWrap.style.opacity = "1";
+          textEl.textContent = `"${testimonials[i].text}"`;
+          nameEl.textContent = testimonials[i].name;
+          companyEl.textContent = testimonials[i].company;
+          requestAnimationFrame(() => setTransition(true));
+          return;
+        }
+
+        textEl.style.opacity = "0";
+        authorWrap.style.opacity = "0";
+
+        renderTimer = setTimeout(() => {
+          if (token !== renderToken) return;
+          textEl.textContent = `"${testimonials[i].text}"`;
+          nameEl.textContent = testimonials[i].name;
+          companyEl.textContent = testimonials[i].company;
+
+          textEl.style.opacity = "1";
+          authorWrap.style.opacity = "1";
+        }, 350);
+      }
+
+      function stopAutoplay() {
+        if (autoplayTimer) {
+          clearInterval(autoplayTimer);
+          autoplayTimer = null;
+        }
+      }
+
+      function startAutoplay() {
+        stopAutoplay();
+        if (isPaused) return;
+        autoplayTimer = setInterval(() => {
+          goTo(index + 1, { manual: false });
+        }, AUTOPLAY_MS);
+      }
+
+      function pauseAutoplay(reason = "interaction") {
+        isPaused = true;
+        stopAutoplay();
+        if (resumeTimer) {
+          clearTimeout(resumeTimer);
+          resumeTimer = null;
+        }
+      }
+
+      function pauseForManualAction() {
+        pauseAutoplay("manual");
+        resumeTimer = setTimeout(() => {
+          isPaused = false;
+          startAutoplay();
+        }, MANUAL_PAUSE_MS);
+      }
+
+      function clampIndex(i) {
+        const n = testimonials.length;
+        return (i % n + n) % n;
+      }
+
+      function goTo(i, { manual } = { manual: true }) {
+        index = clampIndex(i);
+        render(index, { animate: !manual });
+        updateDots();
+        if (manual) pauseForManualAction();
+      }
+
+      function buildDots() {
+        if (!dotsWrap) return;
+        dotsWrap.innerHTML = "";
+        for (let i = 0; i < testimonials.length; i++) {
+          const b = document.createElement("button");
+          b.type = "button";
+          b.className =
+            "h-2.5 w-2.5 rounded-full transition border border-white/30 " +
+            (i === index ? "bg-white" : "bg-white/20 hover:bg-white/35");
+          b.setAttribute("aria-label", `Go to testimonial ${i + 1}`);
+          b.addEventListener("click", () => goTo(i, { manual: true }));
+          dotsWrap.appendChild(b);
+        }
+      }
+
+      function updateDots() {
+        if (!dotsWrap) return;
+        const buttons = dotsWrap.querySelectorAll("button");
+        buttons.forEach((btn, i) => {
+          btn.className =
+            "h-2.5 w-2.5 rounded-full transition border border-white/30 " +
+            (i === index ? "bg-white" : "bg-white/20 hover:bg-white/35");
+        });
+      }
+
+      if (prevBtn) prevBtn.addEventListener("click", () => goTo(index - 1, { manual: true }));
+      if (nextBtn) nextBtn.addEventListener("click", () => goTo(index + 1, { manual: true }));
+
+      if (section) {
+        section.addEventListener("pointerdown", () => pauseAutoplay("pointerdown"), { passive: true });
+        section.addEventListener("focusin", () => pauseAutoplay("focus"), { passive: true });
+
+        section.addEventListener("mouseenter", () => pauseAutoplay("hover"), { passive: true });
+        section.addEventListener("mouseleave", () => {
+          if (resumeTimer) return;
+          isPaused = false;
+          startAutoplay();
+        }, { passive: true });
+      }
+
+      let startX = 0;
+      let startY = 0;
+      let tracking = false;
+
+      if (section) {
+        section.addEventListener("touchstart", (e) => {
+          if (!e.touches || !e.touches[0]) return;
+          tracking = true;
+          startX = e.touches[0].clientX;
+          startY = e.touches[0].clientY;
+          pauseAutoplay("touchstart");
+        }, { passive: true });
+
+        section.addEventListener("touchend", (e) => {
+          if (!tracking) return;
+          tracking = false;
+
+          const t = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0] : null;
+          if (!t) return;
+
+          const dx = t.clientX - startX;
+          const dy = t.clientY - startY;
+
+          if (Math.abs(dy) > Math.abs(dx)) return;
+
+          const SWIPE_PX = 45;
+          if (dx <= -SWIPE_PX) goTo(index + 1, { manual: true });
+          else if (dx >= SWIPE_PX) goTo(index - 1, { manual: true });
+        }, { passive: true });
+      }
+
+      render(index);
+      updateDots();
+
+      requestAnimationFrame(() => {
+        lockHeights();
+      });
+
+      window.addEventListener("resize", () => {
+        lockHeights();
+      });
+
+      buildDots();
+      updateDots();
+      startAutoplay();
+    })();
+  </script>
 </body>
 </html>
