@@ -48,8 +48,15 @@
   </script>
 
   <style>
-    html, body { overflow-x: hidden; }
+    :root, html, body { overflow-x: hidden; }
     body { font-family: "Montserrat", sans-serif; }
+    img, svg, video, canvas {
+      max-width: 100%;
+      height: auto;
+    }
+    section, nav, footer {
+      overflow-x: clip;
+    }
     .glass-nav{
       background: rgba(255,255,255,0.92);
       border-bottom: 1px solid rgba(2,32,96,0.10);
