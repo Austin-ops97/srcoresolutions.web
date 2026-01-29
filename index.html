@@ -900,9 +900,10 @@
 
       let renderTimer = null;
       let renderToken = 0;
+      const FADE_MS = 350;
 
       function setTransition(enabled) {
-        const duration = enabled ? "350ms" : "0ms";
+        const duration = enabled ? `${FADE_MS}ms` : "0ms";
         textEl.style.transitionDuration = duration;
         authorWrap.style.transitionDuration = duration;
       }
@@ -937,10 +938,18 @@
           nameEl.textContent = testimonials[i].name;
           companyEl.textContent = testimonials[i].company;
 
+          textEl.style.visibility = "visible";
+          authorWrap.style.visibility = "visible";
           textEl.style.opacity = "1";
           authorWrap.style.opacity = "1";
           resetClamp();
-        }, 350);
+        }, FADE_MS);
+
+        setTimeout(() => {
+          if (token !== renderToken) return;
+          if (textEl.style.opacity === "0") textEl.style.visibility = "hidden";
+          if (authorWrap.style.opacity === "0") authorWrap.style.visibility = "hidden";
+        }, FADE_MS);
       }
 
       function resetClamp() {
