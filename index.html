@@ -93,6 +93,28 @@
     .faq-content-inner{
       padding-top: 0.75rem;
     }
+    .testimonial-clamp{
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+      line-clamp: 4;
+      overflow: hidden;
+    }
+    @media (min-width: 640px){
+      .testimonial-clamp{
+        -webkit-line-clamp: 5;
+        line-clamp: 5;
+      }
+    }
+    .testimonial-expanded{
+      -webkit-line-clamp: unset;
+      line-clamp: unset;
+      max-height: none !important;
+      overflow: visible;
+    }
+    .testimonial-expanded .testimonial-fade{
+      opacity: 0;
+    }
 
     /* ===== Mobile polish (layout preserved; scale + spacing adjusted) ===== */
     @media (max-width: 640px){
@@ -114,14 +136,14 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20">
 
-        <div class="flex items-center gap-3">
+        <a href="#home" class="flex items-center gap-3">
           <img class="h-12 w-auto" src="SR - Navy Transparent BG.png"
                onerror="this.style.display='none'; document.getElementById('logo-text').style.display='block';"
                alt="SR Core Solutions Logo" />
           <span id="logo-text" class="hidden text-lg font-extrabold tracking-[0.18em] uppercase text-navy-700">
             SR Core <span class="font-light">Solutions</span>
           </span>
-        </div>
+        </a>
 
         <div class="hidden md:flex items-center gap-8">
           <a href="#home" class="text-xs font-bold text-slate-600 hover:text-navy-700 uppercase tracking-[0.18em] transition">Home</a>
@@ -494,58 +516,68 @@
   </section>
 
   <!-- TESTIMONIAL -->
-<section id="testimonials" class="section-anchor py-12 sm:py-16 bg-navy-900 relative overflow-hidden">
+<section id="testimonials" class="section-anchor py-8 sm:py-12 bg-navy-900 relative overflow-hidden">
   <div class="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80')] bg-cover bg-center"></div>
   <div class="absolute inset-0 bg-navy-900/90"></div>
 
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <!-- compact card -->
-    <div class="mx-auto max-w-3xl rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-5 sm:p-7 shadow-card">
-      <div class="flex items-center justify-center mb-4 sm:mb-5">
-        <div class="w-10 h-10 sm:w-11 sm:h-11 bg-white/10 rounded-xl flex items-center justify-center">
-          <i class="fas fa-quote-left text-sm sm:text-base text-white/90"></i>
+    <div class="mx-auto max-w-2xl rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-4 sm:p-5 shadow-card">
+      <div class="flex items-center justify-center mb-3 sm:mb-4">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 rounded-xl flex items-center justify-center">
+          <i class="fas fa-quote-left text-xs sm:text-sm text-white/90"></i>
         </div>
       </div>
 
       <blockquote
         id="testimonial-text"
-        class="relative text-[0.95rem] sm:text-[1.05rem] md:text-lg font-light italic leading-relaxed text-white/95 transition-opacity duration-700
-               max-h-[8.5rem] sm:max-h-[8.25rem] md:max-h-[7.75rem] overflow-hidden mx-auto"
+        class="relative text-[0.85rem] sm:text-[0.95rem] md:text-base font-light italic leading-relaxed text-white/95 transition-opacity duration-700
+               max-h-[6rem] sm:max-h-[6.5rem] md:max-h-[6.25rem] overflow-hidden mx-auto testimonial-clamp"
       >
         <!-- injected by JS -->
-        <span class="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-navy-900/95 to-transparent"></span>
+        <span class="testimonial-fade pointer-events-none absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-navy-900/95 to-transparent transition-opacity"></span>
       </blockquote>
+      <div class="mt-2 sm:mt-3 flex items-center justify-center">
+        <button
+          id="testimonial-toggle"
+          type="button"
+          class="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-navy-50/80 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-white/30 rounded-md px-2 py-1"
+          aria-expanded="false"
+        >
+          Read full testimonial
+        </button>
+      </div>
 
       <div
         id="testimonial-author"
-        class="mt-4 sm:mt-5 flex flex-col items-center gap-0.5 transition-opacity duration-700"
+        class="mt-3 sm:mt-4 flex flex-col items-center gap-0.5 transition-opacity duration-700"
       >
-        <div id="testimonial-name" class="font-extrabold text-[0.9rem] sm:text-base text-white tracking-wider"></div>
+        <div id="testimonial-name" class="font-extrabold text-[0.8rem] sm:text-sm text-white tracking-wider"></div>
         <div
           id="testimonial-company"
-          class="text-[10px] sm:text-[11px] font-bold text-navy-50/80 uppercase tracking-[0.22em] text-center max-w-[36rem]"
+          class="text-[9px] sm:text-[10px] font-bold text-navy-50/80 uppercase tracking-[0.22em] text-center max-w-[32rem]"
         ></div>
       </div>
 
-      <div class="mt-5 sm:mt-6 flex items-center justify-center gap-3">
+      <div class="mt-4 sm:mt-5 flex items-center justify-center gap-2.5">
         <button
           id="testimonial-prev"
           type="button"
-          class="h-10 w-10 sm:h-11 sm:w-11 rounded-xl bg-white/10 border border-white/15 text-white hover:bg-white/15 active:scale-95 transition focus:outline-none focus:ring-4 focus:ring-white/20"
+          class="h-9 w-9 sm:h-10 sm:w-10 rounded-xl bg-white/10 border border-white/15 text-white hover:bg-white/15 active:scale-95 transition focus:outline-none focus:ring-4 focus:ring-white/20"
           aria-label="Previous testimonial"
         >
-          <i class="fas fa-chevron-left text-sm"></i>
+          <i class="fas fa-chevron-left text-xs"></i>
         </button>
 
-        <div id="testimonial-dots" class="flex items-center gap-2"></div>
+        <div id="testimonial-dots" class="flex items-center gap-1.5"></div>
 
         <button
           id="testimonial-next"
           type="button"
-          class="h-10 w-10 sm:h-11 sm:w-11 rounded-xl bg-white/10 border border-white/15 text-white hover:bg-white/15 active:scale-95 transition focus:outline-none focus:ring-4 focus:ring-white/20"
+          class="h-9 w-9 sm:h-10 sm:w-10 rounded-xl bg-white/10 border border-white/15 text-white hover:bg-white/15 active:scale-95 transition focus:outline-none focus:ring-4 focus:ring-white/20"
           aria-label="Next testimonial"
         >
-          <i class="fas fa-chevron-right text-sm"></i>
+          <i class="fas fa-chevron-right text-xs"></i>
         </button>
       </div>
     </div>
@@ -793,6 +825,7 @@
       const nameEl = document.getElementById("testimonial-name");
       const companyEl = document.getElementById("testimonial-company");
       const authorWrap = document.getElementById("testimonial-author");
+      const toggleBtn = document.getElementById("testimonial-toggle");
 
       if (!textEl || !nameEl || !companyEl || !authorWrap) return;
 
@@ -873,6 +906,7 @@
           textEl.textContent = `"${testimonials[i].text}"`;
           nameEl.textContent = testimonials[i].name;
           companyEl.textContent = testimonials[i].company;
+          resetClamp();
           requestAnimationFrame(() => setTransition(true));
           return;
         }
@@ -888,7 +922,20 @@
 
           textEl.style.opacity = "1";
           authorWrap.style.opacity = "1";
+          resetClamp();
         }, 350);
+      }
+
+      function resetClamp() {
+        if (!toggleBtn) return;
+        textEl.classList.add("testimonial-clamp");
+        textEl.classList.remove("testimonial-expanded");
+        toggleBtn.setAttribute("aria-expanded", "false");
+        toggleBtn.textContent = "Read full testimonial";
+        requestAnimationFrame(() => {
+          const needsToggle = textEl.scrollHeight > textEl.clientHeight + 4;
+          toggleBtn.style.display = needsToggle ? "inline-flex" : "none";
+        });
       }
 
       function stopAutoplay() {
@@ -962,6 +1009,14 @@
 
       if (prevBtn) prevBtn.addEventListener("click", () => goTo(index - 1, { manual: true }));
       if (nextBtn) nextBtn.addEventListener("click", () => goTo(index + 1, { manual: true }));
+      if (toggleBtn) {
+        toggleBtn.addEventListener("click", () => {
+          const expanded = toggleBtn.getAttribute("aria-expanded") === "true";
+          toggleBtn.setAttribute("aria-expanded", expanded ? "false" : "true");
+          toggleBtn.textContent = expanded ? "Read full testimonial" : "Show less";
+          textEl.classList.toggle("testimonial-expanded", !expanded);
+        });
+      }
 
       if (section) {
         section.addEventListener("pointerdown", () => pauseAutoplay("pointerdown"), { passive: true });
@@ -1011,6 +1066,7 @@
 
       requestAnimationFrame(() => {
         lockHeights();
+        resetClamp();
       });
 
       window.addEventListener("resize", () => {
