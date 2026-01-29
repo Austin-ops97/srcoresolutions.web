@@ -125,6 +125,20 @@
     }
     .testimonial-fade-item{
       transition: opacity 350ms ease;
+      will-change: opacity;
+    }
+    #testimonial-name,
+    #testimonial-company{
+      transition: opacity 350ms ease, transform 350ms ease;
+      will-change: opacity, transform;
+    }
+    .testimonial-swap-out{
+      opacity: 0;
+      transform: translateY(2px);
+    }
+    .testimonial-swap-in{
+      opacity: 1;
+      transform: translateY(0);
     }
     @media (max-width: 640px){
       .hero-blob{
@@ -924,38 +938,49 @@
           renderTimer = null;
         }
 
+        const t = testimonials[i];
+
         if (!animate) {
           setTransition(false);
           textEl.style.opacity = "1";
           authorWrap.style.opacity = "1";
-          textEl.textContent = `"${testimonials[i].text}"`;
-          nameEl.textContent = testimonials[i].name;
-          companyEl.textContent = testimonials[i].company;
+          textEl.textContent = `"${t.text}"`;
+          nameEl.textContent = t.name;
+          companyEl.textContent = t.company;
+          textEl.classList.remove("testimonial-swap-out");
+          nameEl.classList.remove("testimonial-swap-out");
+          companyEl.classList.remove("testimonial-swap-out");
+          textEl.classList.add("testimonial-swap-in");
+          nameEl.classList.add("testimonial-swap-in");
+          companyEl.classList.add("testimonial-swap-in");
           resetClamp();
           requestAnimationFrame(() => setTransition(true));
           return;
         }
 
-        textEl.style.opacity = "0";
-        authorWrap.style.opacity = "0";
+        textEl.classList.remove("testimonial-swap-in");
+        nameEl.classList.remove("testimonial-swap-in");
+        companyEl.classList.remove("testimonial-swap-in");
+
+        textEl.classList.add("testimonial-swap-out");
+        nameEl.classList.add("testimonial-swap-out");
+        companyEl.classList.add("testimonial-swap-out");
 
         renderTimer = setTimeout(() => {
           if (token !== renderToken) return;
-          textEl.textContent = `"${testimonials[i].text}"`;
-          nameEl.textContent = testimonials[i].name;
-          companyEl.textContent = testimonials[i].company;
-
-          textEl.style.visibility = "visible";
-          authorWrap.style.visibility = "visible";
-          textEl.style.opacity = "1";
-          authorWrap.style.opacity = "1";
+          textEl.textContent = `"${t.text}"`;
+          nameEl.textContent = t.name;
+          companyEl.textContent = t.company;
           resetClamp();
-        }, FADE_MS);
-
-        setTimeout(() => {
-          if (token !== renderToken) return;
-          if (textEl.style.opacity === "0") textEl.style.visibility = "hidden";
-          if (authorWrap.style.opacity === "0") authorWrap.style.visibility = "hidden";
+          requestAnimationFrame(() => {
+            if (token !== renderToken) return;
+            textEl.classList.remove("testimonial-swap-out");
+            nameEl.classList.remove("testimonial-swap-out");
+            companyEl.classList.remove("testimonial-swap-out");
+            textEl.classList.add("testimonial-swap-in");
+            nameEl.classList.add("testimonial-swap-in");
+            companyEl.classList.add("testimonial-swap-in");
+          });
         }, FADE_MS);
       }
 
