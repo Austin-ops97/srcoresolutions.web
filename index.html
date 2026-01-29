@@ -123,6 +123,9 @@
     .testimonial-expanded .testimonial-fade{
       opacity: 0;
     }
+    .testimonial-fade-item{
+      transition: opacity 350ms ease;
+    }
     @media (max-width: 640px){
       .hero-blob{
         width: 300px;
@@ -548,7 +551,7 @@
 
       <blockquote
         id="testimonial-text"
-        class="relative text-[0.85rem] sm:text-[0.95rem] md:text-base font-light italic leading-relaxed text-white/95 transition-opacity duration-700
+        class="testimonial-fade-item relative text-[0.85rem] sm:text-[0.95rem] md:text-base font-light italic leading-relaxed text-white/95
                max-h-[6rem] sm:max-h-[6.5rem] md:max-h-[6.25rem] overflow-hidden mx-auto testimonial-clamp"
       >
         <!-- injected by JS -->
@@ -567,7 +570,7 @@
 
       <div
         id="testimonial-author"
-        class="mt-3 sm:mt-4 flex flex-col items-center gap-0.5 transition-opacity duration-700"
+        class="testimonial-fade-item mt-3 sm:mt-4 flex flex-col items-center gap-0.5"
       >
         <div id="testimonial-name" class="font-extrabold text-[0.8rem] sm:text-sm text-white tracking-wider"></div>
         <div
